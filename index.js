@@ -20,3 +20,11 @@ var PORT = 3000
 app.listen(PORT, function () {
   console.log('CLEANING UP ALL OF THE THINGS THAT WE FIND... ON PORT', PORT)
 })
+
+app.get('/views', knex('wombles')
+  .join('characteristics', 'characteristics.id', '=', 'wombles.characteristic_id')
+  .select('wombles.name', 'characteristics.description')
+  .then(function (data) {
+    res.render(data)
+  })
+)
