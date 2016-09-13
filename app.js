@@ -26,8 +26,17 @@ app.get('/list', function (req, res) {
     })
 })
 
-app.get('/view', function (req, res) {
+app.get('/view/:id', function (req, res) {
+  var id = req.params.id
+  db.getWomblesDes(id)
+    .then(function (data) {
+      res.render('view', data[0])
 
+    })
+    .catch(function (err) {
+      console.error(err.message)
+      res.status(500).send("Can't display users!")
+    })
 })
 
 app.listen(3000, function () {

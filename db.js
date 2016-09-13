@@ -8,7 +8,14 @@ function getWombles() {
     })
 }
 
+function getWomblesDes(id) {
+  return knex('wombles')
+    .join('characteristics', 'wombles.characteristic_id', '=', 'characteristics.id')
+    .select('wombles.name', 'characteristics.description')
+    .where('wombles.id', '=', id)
+}
 
 module.exports = {
-  getWombles: getWombles
+  getWombles: getWombles,
+  getWomblesDes: getWomblesDes
 }
