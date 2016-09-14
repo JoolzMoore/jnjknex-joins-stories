@@ -15,7 +15,21 @@ function getWomblesDes(id) {
     .where('wombles.id', '=', id)
 }
 
+function newWomble() {
+  return knex('wombles').insert({
+    name: 'Bob'
+  })
+}
+
+function newCharacteristic() {
+  return knex('characteristics').insert({
+    description: 'beret'
+  })
+}
+
 module.exports = {
   getWombles: getWombles,
-  getWomblesDes: getWomblesDes
+  getWomblesDes: getWomblesDes,
+  newWomble: newWomble
+  newCharacteristic: newCharacteristic
 }

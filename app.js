@@ -39,6 +39,8 @@ app.get('/view/:id', function (req, res) {
     })
 })
 
-app.listen(3000, function () {
-  console.log('listening on port 3000')
-})
+app.put('/view/:id', function (req, res) {)
+
+    app.listen(3000, function () {
+      console.log('listening on port 3000')
+    })
